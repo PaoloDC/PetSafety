@@ -59,7 +59,13 @@
                             <outlet property="delegate" destination="rQH-ni-8Q6" id="mgp-ag-TtC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="77m-7a-jW1"/>
+                    <navigationItem key="navigationItem" id="77m-7a-jW1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="F8M-x2-GTv">
+                            <connections>
+                                <action selector="addNewPet:" destination="rQH-ni-8Q6" id="dnW-Fh-vWx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRo-yM-NhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,12 @@ class PetsController: UITableViewController {
     
     var petList: PetList!
     
+    @IBAction func addNewPet(_ sender: UIBarButtonItem) {
+        petList.addEmptyPet()
+        let index = IndexPath(row: petList.petArray.count-1, section: 0)
+        tableView.insertRows(at: [index], with: .automatic)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +27,7 @@ class PetsController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,24 +68,20 @@ class PetsController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            petList.petArray.remove(at: indexPath.row)
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+    
 
-    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        petList.sortPet(index: fromIndexPath.row, newIndex: to.row)
     }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
