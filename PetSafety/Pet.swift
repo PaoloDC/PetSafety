@@ -12,9 +12,9 @@ class Pet: NSObject {
     var name: String
     var race: String
     
-    init(name aName: String) {
-        self.name = aName
-        //ciao sn peppe
+    init(name: String, race: String) {
+        self.name = name
+        self.race = race
     }
 }
  
