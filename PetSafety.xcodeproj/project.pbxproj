@@ -547,7 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MN34PB8JY9;
+				DEVELOPMENT_TEAM = 858M62CX7M;
 				INFOPLIST_FILE = PetSafety/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -565,7 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MN34PB8JY9;
+				DEVELOPMENT_TEAM = 858M62CX7M;
 				INFOPLIST_FILE = PetSafety/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
