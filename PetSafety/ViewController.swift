@@ -12,16 +12,15 @@ import Eureka
 class ViewController: FormViewController {
 
     var pet: Pet!
-    var petName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
             form +++ Section("Informazioni")
                 <<< TextRow(){ name in
                     name.title = "Name"
+                    name.tag = "Name"
                     name.placeholder = "Insert pet's name"
                     name.value = pet.name
-                    petName = pet.name
                 }
                 <<< ActionSheetRow<String>() { type in
                     type.title = "Type"
@@ -45,6 +44,7 @@ class ViewController: FormViewController {
                     beacon.title = "Beacon ID"
                     beacon.placeholder = "Insert pet's beacon ID"
                 }
+        
                 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -61,9 +61,12 @@ class ViewController: FormViewController {
         return true
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        pet.name = petName!
+        
+        let rowName: TextRow? = form.rowBy(tag: "Name")
+        let valueName = rowName?.value
+        pet.name = valueName!
         
     }
 
