@@ -16,14 +16,10 @@ class ViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section(){ section in
-            var header = HeaderFooterView<UIImageView>(.class)
-            header.height = {300}
-            header.onSetupView = { view, _ in
-                view.backgroundColor = .red
-            }
-            section.header = header
+            section.header = HeaderFooterView<PetImageView>(.class)
         }
-            form +++ Section("Informazioni")
+
+            form +++ Section("Informations")
                 <<< TextRow(){ name in
                     name.title = "Name"
                     name.tag = "Name"
@@ -108,6 +104,23 @@ class ViewController: FormViewController {
         let valueBeaconID = rowBeaconID?.value
         pet.beaconUUID = valueBeaconID ?? ""
         
+    }
+    
+    class PetImageView: UIView {
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            let imageView = UIImageView(image: UIImage(named: "CatMan"))
+            imageView.frame = CGRect(x: 0, y: 20, width: 320, height: 250)
+            self.frame = CGRect(x: 0, y: 0, width: 320, height: 275)
+            imageView.contentMode = .scaleAspectFit
+            imageView.autoresizingMask = .flexibleWidth
+            addSubview(imageView)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     }
 
 
