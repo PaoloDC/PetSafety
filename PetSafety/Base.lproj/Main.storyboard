@@ -6,15 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SF-Pro-Text-Semibold.otf">
-            <string>SFProText-Semibold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Pets Controller-->
         <scene sceneID="pjg-lU-Fxe">
@@ -98,50 +92,12 @@
                     <view key="view" contentMode="scaleToFill" id="Vpn-ml-Z6D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ys4-rX-Jnq">
-                                <rect key="frame" x="120" y="133.33333333333334" width="175" height="175.00000000000003"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3m-tH-Xcp">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello User Bello!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mk9-go-4pb">
-                                <rect key="frame" x="20" y="328.33333333333331" width="374" height="33.666666666666686"/>
-                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8J-xb-cZG">
-                                <rect key="frame" x="80" y="392" width="254" height="30"/>
-                                <color key="backgroundColor" red="0.90507610102176161" green="0.57499901590088442" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="My Pets">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="rQH-ni-8Q6" kind="show" id="OwC-7n-acv"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="mk9-go-4pb" firstAttribute="leading" secondItem="9LZ-cy-nqK" secondAttribute="leading" constant="20" id="4ZJ-jE-HG3"/>
-                            <constraint firstItem="9LZ-cy-nqK" firstAttribute="trailing" secondItem="mk9-go-4pb" secondAttribute="trailing" constant="20" id="8xQ-m8-jcZ"/>
-                            <constraint firstItem="z8J-xb-cZG" firstAttribute="centerX" secondItem="Vpn-ml-Z6D" secondAttribute="centerX" id="9aA-We-WOX"/>
-                            <constraint firstItem="mk9-go-4pb" firstAttribute="top" secondItem="Ys4-rX-Jnq" secondAttribute="bottom" constant="20" id="Kvg-CW-LTT"/>
-                            <constraint firstItem="z8J-xb-cZG" firstAttribute="leading" secondItem="9LZ-cy-nqK" secondAttribute="leading" constant="80" id="XDK-Kw-UYA"/>
-                            <constraint firstItem="9LZ-cy-nqK" firstAttribute="trailing" secondItem="z8J-xb-cZG" secondAttribute="trailing" constant="80" id="aE8-D0-hE3"/>
-                            <constraint firstItem="z8J-xb-cZG" firstAttribute="top" secondItem="mk9-go-4pb" secondAttribute="bottom" constant="30" id="cIU-g5-RUx"/>
-                            <constraint firstItem="Ys4-rX-Jnq" firstAttribute="centerX" secondItem="Vpn-ml-Z6D" secondAttribute="centerX" id="jGc-08-8gp"/>
-                            <constraint firstItem="mk9-go-4pb" firstAttribute="centerX" secondItem="Vpn-ml-Z6D" secondAttribute="centerX" id="u1D-ME-0Qd"/>
-                            <constraint firstItem="Ys4-rX-Jnq" firstAttribute="centerY" secondItem="Vpn-ml-Z6D" secondAttribute="centerY" multiplier="0.6" id="yYR-qH-Sxr" userLabel="Stack View.centerY = centerY"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9LZ-cy-nqK"/>
                     </view>
                     <navigationItem key="navigationItem" id="QXt-jI-Mds"/>
                     <connections>
-                        <outlet property="profilePicture" destination="g3m-tH-Xcp" id="lW0-lO-SFR"/>
+                        <segue destination="rQH-ni-8Q6" kind="show" identifier="petListSegue" id="4Sc-Vq-luD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gv5-sn-Yrq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,19 +7,50 @@
 //
 
 import UIKit
+import Eureka
 
-class UserController: UIViewController {
+class UserController: FormViewController {
 
-    @IBOutlet weak var profilePicture: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilePicture.image = #imageLiteral(resourceName: "CatMan")
-        profilePicture.layer.borderWidth = 1
-        profilePicture.layer.masksToBounds = false
-        profilePicture.layer.borderColor = UIColor.black.cgColor
-        profilePicture.layer.cornerRadius = profilePicture.frame.height/2
-        profilePicture.clipsToBounds = true
+        form +++ Section(){ section in
+            var header = HeaderFooterView<UIImageView>(.class)
+            header.height = {300}
+            header.onSetupView = { view, _ in
+                view.image = #imageLiteral(resourceName: "CatMan")
+            }
+            section.header = header
+        }
+        
+        form +++ Section()
+            <<< ButtonRow("My Pets") {
+                $0.title = $0.tag
+                $0.presentationMode = .segueName(segueName: "petListSegue", onDismiss: nil)
+        }
+        form +++ Section("General informations")
+            
+            <<< NameRow(){ name in
+                name.title = "Name"
+                name.tag = "Name"
+                name.placeholder = "Insert your name"
+            }
+            <<< NameRow(){ surname in
+                surname.title = "Surname"
+                surname.tag = "Surname"
+                surname.placeholder = "Insert your surname"
+            }
+        
+        form +++ Section("Contact informations")
+            <<< EmailRow(){  email in
+                email.title = "Email Address"
+                email.placeholder = "Insert your email address"
+            }
+            <<< PhoneRow(){ phone in
+                phone.title = "Phone Number"
+                phone.placeholder = "Insert your phone number"
+        }
         // Do any additional setup after loading the view.
     }
 
