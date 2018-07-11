@@ -11,12 +11,17 @@ import Eureka
 
 class ViewController: FormViewController {
 
+    var pet: Pet!
+    var petName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
             form +++ Section("Informazioni")
                 <<< TextRow(){ name in
                     name.title = "Name"
                     name.placeholder = "Insert pet's name"
+                    name.value = pet.name
+                    petName = pet.name
                 }
                 <<< ActionSheetRow<String>() { type in
                     type.title = "Type"
@@ -54,6 +59,12 @@ class ViewController: FormViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        pet.name = petName!
+        
     }
 
 

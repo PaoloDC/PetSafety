@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Eureka
 
 class PetsController: UITableViewController {
     
@@ -34,7 +35,11 @@ class PetsController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,14 +96,29 @@ class PetsController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+            
+        case "showPet"?:
+            
+            if let currentIndex = tableView.indexPathForSelectedRow?.row {
+                
+                let currentItem = petList.petArray[currentIndex]
+                
+                let dstView = segue.destination as! ViewController
+                
+                dstView.pet = currentItem
+                
+            }
+            
+        default: print(#function)
+            
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

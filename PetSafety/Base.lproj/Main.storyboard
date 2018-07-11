@@ -45,7 +45,7 @@
                                 <connections>
                                     <outlet property="lblCellName" destination="3E5-Oi-MYK" id="dhD-zN-Qof"/>
                                     <outlet property="lblCellRace" destination="Dvh-KT-I57" id="Dmh-6B-NuQ"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="8Oz-jY-XlQ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showPet" id="8Oz-jY-XlQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
