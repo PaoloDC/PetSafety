@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dul-e0-69K">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Pets Controller-->
         <scene sceneID="pjg-lU-Fxe">
             <objects>
                 <tableViewController id="rQH-ni-8Q6" customClass="PetsController" customModule="PetSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Dp-xJ-3CE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="petEditCell" rowHeight="70" id="iMo-M9-vlF" customClass="PetEditCell" customModule="PetSafety" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iMo-M9-vlF" id="aa1-cS-OOL" customClass="PetEditCell" customModule="PetSafety" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="69.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E5-Oi-MYK">
@@ -54,13 +60,17 @@
                             <outlet property="delegate" destination="rQH-ni-8Q6" id="mgp-ag-TtC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="77m-7a-jW1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="F8M-x2-GTv">
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9dy-d2-W3R"/>
+                        <barButtonItem systemItem="add" id="x0T-r3-RJz">
                             <connections>
-                                <action selector="addNewPet:" destination="rQH-ni-8Q6" id="dnW-Fh-vWx"/>
+                                <action selector="addNewPet:" destination="rQH-ni-8Q6" id="qYS-hR-iE5"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BK0-Z2-sAH"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="77m-7a-jW1"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRo-yM-NhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +81,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PetSafety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -81,23 +91,83 @@
             </objects>
             <point key="canvasLocation" x="1570" y="32"/>
         </scene>
+        <!--Utente-->
+        <scene sceneID="hmE-tY-5W9">
+            <objects>
+                <viewController title="Utente" id="abn-jP-sOA" customClass="UserController" customModule="PetSafety" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vpn-ml-Z6D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ys4-rX-Jnq">
+                                <rect key="frame" x="120" y="133.33333333333334" width="175" height="175.00000000000003"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3m-tH-Xcp">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello User Bello!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mk9-go-4pb">
+                                <rect key="frame" x="20" y="328.33333333333331" width="374" height="33.666666666666686"/>
+                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8J-xb-cZG">
+                                <rect key="frame" x="80" y="392" width="254" height="30"/>
+                                <color key="backgroundColor" red="0.90507610102176161" green="0.57499901590088442" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="My Pets">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="rQH-ni-8Q6" kind="show" id="OwC-7n-acv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mk9-go-4pb" firstAttribute="leading" secondItem="9LZ-cy-nqK" secondAttribute="leading" constant="20" id="4ZJ-jE-HG3"/>
+                            <constraint firstItem="9LZ-cy-nqK" firstAttribute="trailing" secondItem="mk9-go-4pb" secondAttribute="trailing" constant="20" id="8xQ-m8-jcZ"/>
+                            <constraint firstItem="z8J-xb-cZG" firstAttribute="centerX" secondItem="Vpn-ml-Z6D" secondAttribute="centerX" id="9aA-We-WOX"/>
+                            <constraint firstItem="mk9-go-4pb" firstAttribute="top" secondItem="Ys4-rX-Jnq" secondAttribute="bottom" constant="20" id="Kvg-CW-LTT"/>
+                            <constraint firstItem="z8J-xb-cZG" firstAttribute="leading" secondItem="9LZ-cy-nqK" secondAttribute="leading" constant="80" id="XDK-Kw-UYA"/>
+                            <constraint firstItem="9LZ-cy-nqK" firstAttribute="trailing" secondItem="z8J-xb-cZG" secondAttribute="trailing" constant="80" id="aE8-D0-hE3"/>
+                            <constraint firstItem="z8J-xb-cZG" firstAttribute="top" secondItem="mk9-go-4pb" secondAttribute="bottom" constant="30" id="cIU-g5-RUx"/>
+                            <constraint firstItem="Ys4-rX-Jnq" firstAttribute="centerX" secondItem="Vpn-ml-Z6D" secondAttribute="centerX" id="jGc-08-8gp"/>
+                            <constraint firstItem="mk9-go-4pb" firstAttribute="centerX" secondItem="Vpn-ml-Z6D" secondAttribute="centerX" id="u1D-ME-0Qd"/>
+                            <constraint firstItem="Ys4-rX-Jnq" firstAttribute="centerY" secondItem="Vpn-ml-Z6D" secondAttribute="centerY" multiplier="0.6" id="yYR-qH-Sxr" userLabel="Stack View.centerY = centerY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9LZ-cy-nqK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QXt-jI-Mds"/>
+                    <connections>
+                        <outlet property="profilePicture" destination="g3m-tH-Xcp" id="lW0-lO-SFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gv5-sn-Yrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362.31884057971018" y="31.793478260869566"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fyu-uA-b53">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dul-e0-69K" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K5o-ha-iNg">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="My1-Br-Fnh">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="rQH-ni-8Q6" kind="relationship" relationship="rootViewController" id="Zn4-sr-VdL"/>
+                        <segue destination="abn-jP-sOA" kind="relationship" relationship="rootViewController" id="OKZ-dk-fEk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v50-YV-tiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322.39999999999998" y="31.934032983508249"/>
+            <point key="canvasLocation" x="-1338" y="32"/>
         </scene>
     </scenes>
 </document>
