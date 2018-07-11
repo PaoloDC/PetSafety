@@ -32,25 +32,37 @@ class ViewController: FormViewController {
                 }
                 <<< ActionSheetRow<String>() { type in
                     type.title = "Type"
+                    type.tag = "Type"
                     type.selectorTitle = "Peek an pet"
                     type.options = ["Dog","Cat","Rabbit"]
-                    type.value = "Dog"    // initially selected
+                    if(pet.type == "") {
+                        type.value = "Dog"    // initially selected
+                    } else {
+                        type.value = pet.type
+                    }
                 }
                 <<< TextRow(){ race in
                     race.title = "Race"
+                    race.tag = "Race"
                     race.placeholder = "Insert pet's race"
+                    race.value = pet.race
                 }
                 <<< DateRow(){ date in
                     date.title = "Date of birth"
-                    date.value = Date(timeIntervalSinceReferenceDate: 0)
+                    date.tag = "Date of birth"
+                    date.value = pet.birthDate
                 }
                 <<< TextRow(){ microchip in
                     microchip.title = "Microchip ID"
+                    microchip.tag = "Microchip ID"
                     microchip.placeholder = "Insert pet's microchip ID"
+                    microchip.value = pet.microchipID
                     }
                 <<< TextRow(){ beacon in
                     beacon.title = "Beacon ID"
+                    beacon.tag = "Beacon ID"
                     beacon.placeholder = "Insert pet's beacon ID"
+                    beacon.value = pet.beaconUUID
                 }
         
                 
@@ -75,6 +87,26 @@ class ViewController: FormViewController {
         let rowName: TextRow? = form.rowBy(tag: "Name")
         let valueName = rowName?.value
         pet.name = valueName!
+        
+        let rowType: ActionSheetRow<String>! = form.rowBy(tag: "Type")
+        let valueType = rowType?.value
+        pet.type = valueType!
+        
+        let rowRace: TextRow? = form.rowBy(tag: "Race")
+        let valueRace = rowRace?.value
+        pet.race = valueRace!
+        
+        let rowBirthDate: DateRow? = form.rowBy(tag: "Date of birth")
+        let valueBirthDate = rowBirthDate?.value
+        pet.birthDate = valueBirthDate!
+        
+        let rowMicrochipID: TextRow? = form.rowBy(tag: "Microchip ID")
+        let valueMicrochipID = rowMicrochipID?.value
+        pet.microchipID = valueMicrochipID!
+        
+        let rowBeaconID: TextRow? = form.rowBy(tag: "Beacon ID")
+        let valueBeaconID = rowBeaconID?.value
+        pet.beaconUUID = valueBeaconID!
         
     }
 

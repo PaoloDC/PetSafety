@@ -28,7 +28,7 @@ class PetList: NSObject {
     func addEmptyPet(){
         let emstr = "new pet"
         
-        let pet = Pet(name: emstr, race: emstr)
+        let pet = Pet(name: emstr, race: "", type: "", photo: "", birthDate: Date(), microchipID: "", beaconUUID: "")
         petArray.append(pet)
     }
 }
