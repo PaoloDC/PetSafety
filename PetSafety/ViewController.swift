@@ -86,27 +86,27 @@ class ViewController: FormViewController {
         
         let rowName: TextRow? = form.rowBy(tag: "Name")
         let valueName = rowName?.value
-        pet.name = valueName!
+        pet.name = valueName ?? "No name"
         
         let rowType: ActionSheetRow<String>! = form.rowBy(tag: "Type")
         let valueType = rowType?.value
-        pet.type = valueType!
+        pet.type = valueType ?? "Dog"
         
         let rowRace: TextRow? = form.rowBy(tag: "Race")
         let valueRace = rowRace?.value
-        pet.race = valueRace!
+        pet.race = valueRace ?? ""
         
         let rowBirthDate: DateRow? = form.rowBy(tag: "Date of birth")
         let valueBirthDate = rowBirthDate?.value
-        pet.birthDate = valueBirthDate!
+        pet.birthDate = valueBirthDate ?? Date()
         
         let rowMicrochipID: TextRow? = form.rowBy(tag: "Microchip ID")
         let valueMicrochipID = rowMicrochipID?.value
-        pet.microchipID = valueMicrochipID!
+        pet.microchipID = valueMicrochipID ?? ""
         
         let rowBeaconID: TextRow? = form.rowBy(tag: "Beacon ID")
         let valueBeaconID = rowBeaconID?.value
-        pet.beaconUUID = valueBeaconID!
+        pet.beaconUUID = valueBeaconID ?? ""
         
     }
 
