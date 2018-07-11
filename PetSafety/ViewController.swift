@@ -15,6 +15,14 @@ class ViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        form +++ Section(){ section in
+            var header = HeaderFooterView<UIImageView>(.class)
+            header.height = {300}
+            header.onSetupView = { view, _ in
+                view.backgroundColor = .red
+            }
+            section.header = header
+        }
             form +++ Section("Informazioni")
                 <<< TextRow(){ name in
                     name.title = "Name"
