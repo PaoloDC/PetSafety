@@ -16,12 +16,7 @@ class UserController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section(){ section in
-            var header = HeaderFooterView<UIImageView>(.class)
-            header.height = {300}
-            header.onSetupView = { view, _ in
-                view.image = #imageLiteral(resourceName: "CatMan")
-            }
-            section.header = header
+            section.header = HeaderFooterView<UserImageView>(.class)
         }
         
         form +++ Section()
@@ -69,5 +64,22 @@ class UserController: FormViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    class UserImageView: UIView {
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            let imageView = UIImageView(image: UIImage(named: "CatMan"))
+            imageView.frame = CGRect(x: 0, y: 20, width: 250, height: 250)
+            self.frame = CGRect(x: 0, y: 20, width: 250, height: 250)
+            imageView.contentMode = .scaleAspectFit
+            imageView.autoresizingMask = .flexibleWidth
+            addSubview(imageView)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
 
 }
