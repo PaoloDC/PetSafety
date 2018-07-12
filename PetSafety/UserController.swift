@@ -13,8 +13,6 @@ import ImageRow
 
 class UserController: FormViewController {
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
