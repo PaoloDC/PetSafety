@@ -13,12 +13,14 @@ class User: NSObject {
     var surname: String
     var phoneNumber: String
     var emailAddress: String
+    var userID: String
     
-    init(name: String, surname: String, phoneNumber: String, emailAddress: String) {
+    init(name: String, surname: String, phoneNumber: String, emailAddress: String, userID: String) {
         self.name = name
         self.surname = surname
         self.phoneNumber = phoneNumber
         self.emailAddress = emailAddress
+        self.userID = userID
     }
     
 }
