@@ -14,6 +14,7 @@ class MyPetListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        
         DispatchQueue.main.async {
             self.cntView.layer.cornerRadius = 20
             self.cntView.layer.shadowColor = UIColor.lightGray.cgColor
@@ -26,6 +27,12 @@ class MyPetListCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    @IBOutlet weak var switchMissing: UISwitch!
+    
+    
+    @IBAction func switchMissing(_ sender: UISwitch) {
+        print("Lo switch è \(sender.isOn)")
+    }
     @IBOutlet weak var labelRazza: UILabel!
     @IBOutlet weak var labelNome: UILabel!
     @IBOutlet weak var image: UIImageView!

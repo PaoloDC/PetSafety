@@ -26,24 +26,35 @@
                                 <rect key="frame" x="5" y="5" width="266" height="415"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EhG-Sd-nY6">
-                                        <rect key="frame" x="33" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="33" y="0.0" width="200" height="174"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-ci-VID">
-                                        <rect key="frame" x="112" y="215" width="42" height="20.5"/>
+                                        <rect key="frame" x="112" y="189" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7q-rS-5Cw">
-                                        <rect key="frame" x="112" y="250.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="112" y="224.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7H-ub-h2C">
-                                        <rect key="frame" x="110" y="286" width="46" height="129"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillProportionally" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nJd-xy-2Fa">
+                                        <rect key="frame" x="75.5" y="260" width="115" height="155"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7H-ub-h2C">
+                                                <rect key="frame" x="0.0" y="125" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wqQ-Al-grr">
+                                                <rect key="frame" x="66" y="124" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchMissing:" destination="gTV-IL-0wX" eventType="valueChanged" id="lmN-g7-KiG"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -71,6 +82,7 @@
                 <outlet property="image" destination="EhG-Sd-nY6" id="hDe-0z-dHy"/>
                 <outlet property="labelNome" destination="8xm-ci-VID" id="XF2-NA-Vqi"/>
                 <outlet property="labelRazza" destination="v7q-rS-5Cw" id="VLS-d3-1CB"/>
+                <outlet property="switchMissing" destination="wqQ-Al-grr" id="ySo-yB-5K9"/>
             </connections>
             <point key="canvasLocation" x="-146" y="-34.5"/>
         </collectionViewCell>
