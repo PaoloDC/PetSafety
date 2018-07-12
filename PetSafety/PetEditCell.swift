@@ -12,6 +12,7 @@ class PetEditCell: UITableViewCell {
 
     @IBOutlet weak var lblCellName: UILabel!
     @IBOutlet weak var lblCellRace: UILabel!
+    @IBOutlet weak var petThumb: UIImageView!
     
     
     

@@ -12,11 +12,14 @@ import Eureka
 class PetsController: UITableViewController {
     
     var petList: PetList!
+    var imageStore: ImageStore!
     
     @IBAction func addNewPet(_ sender: UIBarButtonItem) {
-        petList.addEmptyPet()
-        let index = IndexPath(row: petList.petArray.count-1, section: 0)
-        tableView.insertRows(at: [index], with: .automatic)
+        //petList.addEmptyPet()
+        //let index = IndexPath(row: petList.petArray.count-1, section: 0)
+        //tableView.insertRows(at: [index], with: .automatic)
+        
+        performSegue(withIdentifier: "newPet", sender: sender)
         
     }
     override func viewDidLoad() {
@@ -66,6 +69,9 @@ class PetsController: UITableViewController {
         
         cell.lblCellName.text = pet.name
         cell.lblCellRace.text = pet.race
+        //let img = imageStore.image(forKey: pet.petKey) ?? UIImage(named: "CatMan")
+        let img = UIImage(named: "CatMan")
+        cell.petThumb.image = img
 
         return cell
     }
@@ -119,6 +125,17 @@ class PetsController: UITableViewController {
                 dstView.pet = currentItem
                 
             }
+        
+        case "newPet"?:
+            
+            petList.addEmptyPet()
+            
+            let currentItem = petList.petArray[petList.petArray.count-1]
+                
+            let dstView = segue.destination as! ViewController
+                
+            dstView.pet = currentItem
+            
             
         default: print(#function)
             

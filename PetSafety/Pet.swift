@@ -16,6 +16,7 @@ class Pet: NSObject {
     var birthDate: Date
     var microchipID: String
     var beaconUUID: String
+    let petKey: String
     
     init(name: String, race: String, type: String, photo: String, birthDate: Date, microchipID: String, beaconUUID: String) {
         self.name = name
@@ -25,6 +26,7 @@ class Pet: NSObject {
         self.birthDate = birthDate
         self.microchipID = microchipID
         self.beaconUUID = beaconUUID
+        self.petKey = UUID().uuidString
     }
 }
  
