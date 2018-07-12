@@ -4,7 +4,8 @@ platform :ios, '9.0'
 
 target 'PetSafety' do
   use_frameworks!
-  pod 'Eureka'
+  pod 'ImageRow', '~> 3.0'
+  pod 'ViewRow', :git => 'https://github.com/EurekaCommunity/ViewRow'
   # Pods for PetSafety
 
   target 'PetSafetyTests' do

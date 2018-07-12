@@ -8,6 +8,8 @@
 
 import UIKit
 import Eureka
+import ImageRow
+import ViewRow
 
 class ViewController: FormViewController {
 
@@ -15,10 +17,33 @@ class ViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        form +++ Section(){ section in
-            section.header = HeaderFooterView<PetImageView>(.class)
+        form +++ Section()
+            <<< ViewRow<UIImageView>("ciao")
+                
+                .cellSetup { (cell, row) in
+                    //  Construct the view for the cell
+                    cell.view = UIImageView()
+                    cell.contentView.addSubview(cell.view!)
+                    
+                    //  Get something to display
+                    let image = UIImageView(image: UIImage(named: "CatMan"))
+                    cell.view = image
+                    cell.view?.frame = CGRect(x: 0, y: 20, width: 20, height: 250)
+                    cell.view?.contentMode = .scaleAspectFit
+                    cell.view?.autoresizingMask = .flexibleWidth
+                    cell.view!.clipsToBounds = true
+                }
+            <<< ImageRow() { row in
+                row.title = "Edit photo"
+                row.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum, .Camera]
+                row.clearAction = .yes(style: UIAlertActionStyle.destructive)
+                row.onChange { photo in
+                    guard let imageRow = self.form.rowBy(tag: "ciao") as? ViewRow<UIImageView> else {return}
+                    imageRow.cell.view!.image = row.value
+                }
         }
-
+        
+        
             form +++ Section("Informations")
                 <<< TextRow(){ name in
                     name.title = "Name"
@@ -106,22 +131,7 @@ class ViewController: FormViewController {
         
     }
     
-    class PetImageView: UIView {
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            let imageView = UIImageView(image: UIImage(named: "CatMan"))
-            imageView.frame = CGRect(x: 0, y: 20, width: 320, height: 250)
-            self.frame = CGRect(x: 0, y: 0, width: 320, height: 275)
-            imageView.contentMode = .scaleAspectFit
-            imageView.autoresizingMask = .flexibleWidth
-            addSubview(imageView)
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    }
+
 
 
 }
