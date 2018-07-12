@@ -12,6 +12,7 @@ import Eureka
 class PetsController: UITableViewController {
     
     var petList: PetList!
+    var petPList: [PPet]!
     var imageStore: ImageStore!
     
     @IBAction func addNewPet(_ sender: UIBarButtonItem) {
@@ -25,7 +26,9 @@ class PetsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        petList = PetList()
+//        petList = PetList()
+          petPList = PersistenceManager.fetchData()
+        
         //petList.addEmptyPet()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,6 +51,7 @@ class PetsController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
         self.navigationController?.setToolbarHidden(true, animated: animated)
+        PersistenceManager.saveContext()
     }
     // MARK: - Table view data source
 
@@ -58,15 +62,16 @@ class PetsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return petList.petArray.count
+//        return petList.petArray.count
+        return petPList.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "petEditCell", for: indexPath) as! PetEditCell
 
-        let pet = petList.petArray[indexPath.row]
-        
+//        let pet = petList.petArray[indexPath.row]
+        let pet = petPList[indexPath.row]
         cell.lblCellName.text = pet.name
         cell.lblCellRace.text = pet.race
         //let img = imageStore.image(forKey: pet.petKey) ?? UIImage(named: "CatMan")
@@ -88,7 +93,8 @@ class PetsController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            petList.petArray.remove(at: indexPath.row)
+            let removedPet = petPList.remove(at: indexPath.row)
+            PersistenceManager.deletePet(pet: removedPet)
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -118,23 +124,29 @@ class PetsController: UITableViewController {
             
             if let currentIndex = tableView.indexPathForSelectedRow?.row {
                 
-                let currentItem = petList.petArray[currentIndex]
+                let currentPet = petPList[currentIndex]
                 
                 let dstView = segue.destination as! ViewController
                 
-                dstView.pet = currentItem
+                dstView.pPet = currentPet
                 
             }
         
         case "newPet"?:
             
-            petList.addEmptyPet()
+//            petList.addEmptyPet()
+            let newPet = PersistenceManager.newEmptyPet()
+            petPList.append(newPet)
+//            let currentItem = petList.petArray[petList.petArray.count-1]
             
-            let currentItem = petList.petArray[petList.petArray.count-1]
-                
+//            let dstView = segue.destination as! ViewController
+            
+//            dstView.pet = currentItem
+            let currentPet = petPList[petPList.count-1]
+            
             let dstView = segue.destination as! ViewController
-                
-            dstView.pet = currentItem
+            
+            dstView.pPet = currentPet
             
             
         default: print(#function)

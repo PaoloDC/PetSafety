@@ -14,6 +14,7 @@ import ViewRow
 class ViewController: FormViewController {
 
     var pet: Pet!
+    var pPet: PPet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,41 +51,41 @@ class ViewController: FormViewController {
                     name.title = "Name"
                     name.tag = "Name"
                     name.placeholder = "Insert pet's name"
-                    name.value = pet.name
+                    name.value = pPet.name
                 }
                 <<< ActionSheetRow<String>() { type in
                     type.title = "Type"
                     type.tag = "Type"
                     type.selectorTitle = "Peek an pet"
                     type.options = ["Dog","Cat","Rabbit"]
-                    if(pet.type == "") {
-                        type.value = "Dog"    // initially selected
-                    } else {
-                        type.value = pet.type
-                    }
+//                    if(pet.type == nil) {
+//                        type.value = "Dog"    // initially selected
+//                    } else {
+//                        type.value = pPet.type
+//                    }
                 }
                 <<< TextRow(){ race in
                     race.title = "Race"
                     race.tag = "Race"
                     race.placeholder = "Insert pet's race"
-                    race.value = pet.race
+                    race.value = pPet.race
                 }
                 <<< DateRow(){ date in
                     date.title = "Date of birth"
                     date.tag = "Date of birth"
-                    date.value = pet.birthDate
+//                    date.value = pPet.birthDate
                 }
                 <<< TextRow(){ microchip in
                     microchip.title = "Microchip ID"
                     microchip.tag = "Microchip ID"
                     microchip.placeholder = "Insert pet's microchip ID"
-                    microchip.value = pet.microchipID
+//                    microchip.value = pPet.microchipID
                     }
                 <<< TextRow(){ beacon in
                     beacon.title = "Beacon ID"
                     beacon.tag = "Beacon ID"
                     beacon.placeholder = "Insert pet's beacon ID"
-                    beacon.value = pet.beaconUUID
+//                    beacon.value = pPet.beaconUUID
                 }
         
                 
@@ -108,28 +109,29 @@ class ViewController: FormViewController {
         
         let rowName: TextRow? = form.rowBy(tag: "Name")
         let valueName = rowName?.value
-        pet.name = valueName ?? "No name"
+        pPet.name = valueName ?? "No name"
         
         let rowType: ActionSheetRow<String>! = form.rowBy(tag: "Type")
         let valueType = rowType?.value
-        pet.type = valueType ?? "Dog"
+        pPet.type = valueType ?? "Dog"
         
         let rowRace: TextRow? = form.rowBy(tag: "Race")
         let valueRace = rowRace?.value
-        pet.race = valueRace ?? ""
+        pPet.race = valueRace ?? ""
         
         let rowBirthDate: DateRow? = form.rowBy(tag: "Date of birth")
         let valueBirthDate = rowBirthDate?.value
-        pet.birthDate = valueBirthDate ?? Date()
+//        pPet.birthDate = valueBirthDate ?? Date()
         
         let rowMicrochipID: TextRow? = form.rowBy(tag: "Microchip ID")
         let valueMicrochipID = rowMicrochipID?.value
-        pet.microchipID = valueMicrochipID ?? ""
+//        pPet.microchipID = valueMicrochipID ?? ""
         
         let rowBeaconID: TextRow? = form.rowBy(tag: "Beacon ID")
         let valueBeaconID = rowBeaconID?.value
-        pet.beaconUUID = valueBeaconID ?? ""
+//        pPet.beaconUUID = valueBeaconID ?? ""
         
+        PersistenceManager.saveContext()
     }
     
 
