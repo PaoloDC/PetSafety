@@ -69,7 +69,8 @@
                         </barButtonItem>
                         <barButtonItem systemItem="compose" id="vAh-FN-Ocm">
                             <connections>
-                                <segue destination="X42-lQ-8CW" kind="show" id="Zpp-T3-YTj"/>
+                                <action selector="openList:" destination="rQH-ni-8Q6" id="gT5-Gy-0Wk"/>
+                                <segue destination="X42-lQ-8CW" kind="show" identifier="openList" id="gyV-93-u3T"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="BK0-Z2-sAH"/>

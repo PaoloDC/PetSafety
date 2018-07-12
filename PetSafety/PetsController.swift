@@ -22,6 +22,11 @@ class PetsController: UITableViewController {
         performSegue(withIdentifier: "newPet", sender: sender)
         
     }
+    @IBAction func openList(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "openList", sender: sender)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,12 +141,17 @@ class PetsController: UITableViewController {
                 
             dstView.pet = currentItem
             
+        case "openList"?:
+            let dstView = segue.destination as! MyPetListViewController
+            dstView.petList = petList
             
+           
         default: print(#function)
             
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+
 
 }

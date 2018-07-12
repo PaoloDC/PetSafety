@@ -23,14 +23,14 @@ class MyPetListCollectionViewCell: UICollectionViewCell {
             self.cntView.layer.shadowPath = UIBezierPath(rect: self.cntView.bounds).cgPath
             self.cntView.layer.shouldRasterize = true
             
-            
         }
-        
-        
     }
     
+    @IBOutlet weak var labelRazza: UILabel!
+    @IBOutlet weak var labelNome: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var cntView: UIView!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var label: UILabel!
+    
+    
 }

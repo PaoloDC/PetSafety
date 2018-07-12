@@ -28,14 +28,20 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EhG-Sd-nY6">
                                         <rect key="frame" x="33" y="0.0" width="200" height="200"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW0-86-jVK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-ci-VID">
                                         <rect key="frame" x="112" y="215" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7q-rS-5Cw">
+                                        <rect key="frame" x="112" y="250.5" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7H-ub-h2C">
-                                        <rect key="frame" x="110" y="250.5" width="46" height="164.5"/>
+                                        <rect key="frame" x="110" y="286" width="46" height="129"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
@@ -63,7 +69,8 @@
                 <outlet property="button" destination="R7H-ub-h2C" id="9HO-TB-wv0"/>
                 <outlet property="cntView" destination="Z5s-1V-WJb" id="ciT-WG-YKF"/>
                 <outlet property="image" destination="EhG-Sd-nY6" id="hDe-0z-dHy"/>
-                <outlet property="label" destination="vW0-86-jVK" id="peE-up-DJ5"/>
+                <outlet property="labelNome" destination="8xm-ci-VID" id="XF2-NA-Vqi"/>
+                <outlet property="labelRazza" destination="v7q-rS-5Cw" id="VLS-d3-1CB"/>
             </connections>
             <point key="canvasLocation" x="-146" y="-34.5"/>
         </collectionViewCell>

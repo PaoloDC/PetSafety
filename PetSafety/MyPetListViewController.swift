@@ -12,7 +12,7 @@ class MyPetListViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    var mypetlist = 
+    var petList: PetList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +31,21 @@ class MyPetListViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return petList!.petArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPetListID", for: indexPath) as! MyPetListCollectionViewCell
         
-        cell.label.text = "CIAO"
+        cell.labelNome.text = "Nome: \(petList!.petArray[indexPath.row].name)"
         
+        cell.labelRazza.text = "Razza: \(petList!.petArray[indexPath.row].race)"
+      
+        cell.image.image = UIImage(named: petList!.petArray[indexPath.row].photo)
         
         return cell
     }
@@ -74,6 +76,7 @@ class MyPetListViewController: UIViewController, UICollectionViewDelegate, UICol
     fileprivate var currentPage: Int = 0 {
         didSet {
             print("page at centre = \(currentPage)")
+            
 //            let character = self.items[self.currentPage]
 //            self.infoLabel.text = character.name.uppercased()
 //            self.detailLabel.text = character.movie.uppercased()
