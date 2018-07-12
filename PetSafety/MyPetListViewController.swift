@@ -12,7 +12,7 @@ class MyPetListViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var mypetlist = 
+//    var mypetlist = 
     
     override func viewDidLoad() {
         super.viewDidLoad()
