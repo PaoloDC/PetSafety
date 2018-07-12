@@ -36,6 +36,10 @@
 		02EEC5FE20F6692F001AE51A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EEC5FD20F6692F001AE51A /* User.swift */; };
 		10420CA25D9406CE973B1A4E /* Pods_PetSafetyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D78D66368594BE25373247 /* Pods_PetSafetyTests.framework */; };
 		6816973049B172E0098E81EB /* Pods_PetSafety.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D581E9A483A07CEFDC22D9 /* Pods_PetSafety.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		706AAAAC20F7580300ECCDE8 /* MyPetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706AAAAB20F7580300ECCDE8 /* MyPetListViewController.swift */; };
+		706AAAB120F7596700ECCDE8 /* MyPetListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706AAAAF20F7596700ECCDE8 /* MyPetListCollectionViewCell.swift */; };
+		706AAAB220F7596700ECCDE8 /* MyPetListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 706AAAB020F7596700ECCDE8 /* MyPetListCollectionViewCell.xib */; };
+		706AAAB420F75DC400ECCDE8 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706AAAB320F75DC400ECCDE8 /* UPCarouselFlowLayout.swift */; };
 		70F8869F20F4A61100D09EE4 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8869E20F4A61100D09EE4 /* Pet.swift */; };
 		70FED89520F4A56D00C9258D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FED89420F4A56D00C9258D /* AppDelegate.swift */; };
 		70FED89720F4A56D00C9258D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FED89620F4A56D00C9258D /* ViewController.swift */; };
@@ -95,6 +99,10 @@
 		02EEC5FD20F6692F001AE51A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		304220CE20082BFA6712549C /* Pods-PetSafetyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetSafetyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetSafetyUITests/Pods-PetSafetyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6CA0B87D1A9D8D7639AD23EF /* Pods_PetSafetyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetSafetyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		706AAAAB20F7580300ECCDE8 /* MyPetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetListViewController.swift; sourceTree = "<group>"; };
+		706AAAAF20F7596700ECCDE8 /* MyPetListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetListCollectionViewCell.swift; sourceTree = "<group>"; };
+		706AAAB020F7596700ECCDE8 /* MyPetListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPetListCollectionViewCell.xib; sourceTree = "<group>"; };
+		706AAAB320F75DC400ECCDE8 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		70F8869E20F4A61100D09EE4 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		70FED89120F4A56D00C9258D /* PetSafety.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetSafety.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FED89420F4A56D00C9258D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +210,7 @@
 		70FED89320F4A56D00C9258D /* PetSafety */ = {
 			isa = PBXGroup;
 			children = (
+				706AAAB320F75DC400ECCDE8 /* UPCarouselFlowLayout.swift */,
 				70FED89420F4A56D00C9258D /* AppDelegate.swift */,
 				70FED89620F4A56D00C9258D /* ViewController.swift */,
 				70FED89820F4A56D00C9258D /* Main.storyboard */,
@@ -215,6 +224,9 @@
 				02EEC5FB20F6479D001AE51A /* UserController.swift */,
 				02EEC5FD20F6692F001AE51A /* User.swift */,
 				BB1392DA20F69DBF000C1CDF /* ImageStore.swift */,
+				706AAAAB20F7580300ECCDE8 /* MyPetListViewController.swift */,
+				706AAAAF20F7596700ECCDE8 /* MyPetListCollectionViewCell.swift */,
+				706AAAB020F7596700ECCDE8 /* MyPetListCollectionViewCell.xib */,
 			);
 			path = PetSafety;
 			sourceTree = "<group>";
@@ -378,6 +390,7 @@
 				0221FA6220F4B5B200F935D7 /* SFCompactDisplay-Heavy.otf in Resources */,
 				0221FA5D20F4B5B200F935D7 /* SFCompactText-SemiboldItalic.otf in Resources */,
 				0221FA5E20F4B5B200F935D7 /* SFCompactText-Medium.otf in Resources */,
+				706AAAB220F7596700ECCDE8 /* MyPetListCollectionViewCell.xib in Resources */,
 				0221FA6120F4B5B200F935D7 /* SFCompactDisplay-Semibold.otf in Resources */,
 				0221FA5F20F4B5B200F935D7 /* SFCompactText-MediumItalic.otf in Resources */,
 				0221FA5520F4B5B200F935D7 /* SFCompactText-LightItalic.otf in Resources */,
@@ -501,10 +514,13 @@
 				BB1392DB20F69DBF000C1CDF /* ImageStore.swift in Sources */,
 				70F8869F20F4A61100D09EE4 /* Pet.swift in Sources */,
 				0221FA6F20F4B99700F935D7 /* PetsController.swift in Sources */,
+				706AAAB120F7596700ECCDE8 /* MyPetListCollectionViewCell.swift in Sources */,
 				02EEC5FE20F6692F001AE51A /* User.swift in Sources */,
 				70FED89720F4A56D00C9258D /* ViewController.swift in Sources */,
 				70FED89520F4A56D00C9258D /* AppDelegate.swift in Sources */,
 				0221FA7320F4BE4400F935D7 /* PetEditCell.swift in Sources */,
+				706AAAB420F75DC400ECCDE8 /* UPCarouselFlowLayout.swift in Sources */,
+				706AAAAC20F7580300ECCDE8 /* MyPetListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

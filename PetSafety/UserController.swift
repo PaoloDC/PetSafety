@@ -11,8 +11,6 @@ import Eureka
 
 class UserController: FormViewController {
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section(){ section in
