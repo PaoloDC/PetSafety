@@ -30,9 +30,10 @@ class ViewController: FormViewController {
                     cell.view = image
                     cell.view?.frame = CGRect(x: 0, y: 20, width: 20, height: 250)
                     cell.view?.contentMode = .scaleAspectFit
-                    cell.view?.autoresizingMask = .flexibleWidth
                     cell.view!.clipsToBounds = true
                 }
+            
+        form +++ Section()
             <<< ImageRow() { row in
                 row.title = "Edit photo"
                 row.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum, .Camera]
@@ -40,8 +41,8 @@ class ViewController: FormViewController {
                 row.onChange { photo in
                     guard let imageRow = self.form.rowBy(tag: "ciao") as? ViewRow<UIImageView> else {return}
                     imageRow.cell.view!.image = row.value
+                    }
                 }
-        }
         
         
             form +++ Section("Informations")
