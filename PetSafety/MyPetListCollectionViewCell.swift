@@ -9,35 +9,27 @@
 import UIKit
 
 class MyPetListCollectionViewCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-        
-        DispatchQueue.main.async {
-            self.cntView.layer.cornerRadius = 20
-            self.cntView.layer.shadowColor = UIColor.lightGray.cgColor
-            self.cntView.layer.shadowOpacity = 0.5
-            self.cntView.layer.shadowOpacity = 10
-            self.cntView.layer.shadowOffset = .zero
-            self.cntView.layer.shadowPath = UIBezierPath(rect: self.cntView.bounds).cgPath
-            self.cntView.layer.shouldRasterize = true
-            
-        }
-    }
     
-    @IBOutlet weak var switchMissing: UISwitch!
-    
-    
-    @IBAction func switchMissing(_ sender: UISwitch) {
-        print("Lo switch è \(sender.isOn)")
-    }
     @IBOutlet weak var labelRazza: UILabel!
     @IBOutlet weak var labelNome: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var cntView: UIView!
-    @IBOutlet weak var button: UIButton!
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+
+        DispatchQueue.main.async {
+            
+            
+            let color: UIColor = #colorLiteral(red: 1, green: 0.7673729658, blue: 0.3670938015, alpha: 1)
+            self.cntView.backgroundColor = color
+            self.cntView.layer.cornerRadius = 20
+            self.cntView.layer.shadowColor = UIColor.lightGray.cgColor
+            self.cntView.layer.shadowOpacity = 0
+            self.cntView.layer.shadowOffset = .zero
+            self.cntView.layer.shadowPath = UIBezierPath(rect: self.cntView.bounds).cgPath
+        }
+    }
+
 }

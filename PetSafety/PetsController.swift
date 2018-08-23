@@ -11,9 +11,9 @@ import Eureka
 
 class PetsController: UITableViewController {
     
-    var petList: PetList!
     var petPList: [PPet]!
     var imageStore: ImageStore!
+    var image: UIImage!
     
     @IBAction func addNewPet(_ sender: UIBarButtonItem) {
         //petList.addEmptyPet()
@@ -23,18 +23,11 @@ class PetsController: UITableViewController {
         performSegue(withIdentifier: "newPet", sender: sender)
         
     }
-    @IBAction func openList(_ sender: UIBarButtonItem) {
-        
-        performSegue(withIdentifier: "openList", sender: sender)
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        petList = PetList()
+
           petPList = PersistenceManager.fetchData()
-        
-        //petList.addEmptyPet()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -55,7 +48,6 @@ class PetsController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
-        self.navigationController?.setToolbarHidden(true, animated: animated)
         PersistenceManager.saveContext()
     }
     // MARK: - Table view data source
@@ -75,14 +67,29 @@ class PetsController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "petEditCell", for: indexPath) as! PetEditCell
 
-//        let pet = petList.petArray[indexPath.row]
         let pet = petPList[indexPath.row]
         cell.lblCellName.text = pet.name
         cell.lblCellRace.text = pet.race
-        //let img = imageStore.image(forKey: pet.petKey) ?? UIImage(named: "CatMan")
-        let img = UIImage(named: "CatMan")
-        cell.petThumb.image = img
+        
 
+        if (pet.photouuid == nil){
+            image = UIImage(named: "CatMan")
+        }
+        else {
+            let imageName = pet.photouuid // your image name here
+            let imagePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(imageName!).png"
+            print (imagePath)
+            let imageUrl: URL = URL(fileURLWithPath: imagePath)
+            guard FileManager.default.fileExists(atPath: imagePath),
+                let imageData: Data = try? Data(contentsOf: imageUrl),
+                let photo = UIImage(data: imageData, scale: UIScreen.main.scale) else {
+                    print ("Immagine non trovata!")
+                    return cell
+            }
+            image = photo
+        }
+        
+        cell.petThumb.image = image
         return cell
     }
 
@@ -108,7 +115,8 @@ class PetsController: UITableViewController {
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        petList.sortPet(index: fromIndexPath.row, newIndex: to.row)
+//        petList.sortPet(index: fromIndexPath.row, newIndex: to.row)
+        petPList = PersistenceManager.oderPet(index: fromIndexPath.row, newIndex: to.row, petArray: petPList)
     }
 
     /*
@@ -139,31 +147,22 @@ class PetsController: UITableViewController {
         
         case "newPet"?:
             
-//            petList.addEmptyPet()
+
             let newPet = PersistenceManager.newEmptyPet()
+            
             petPList.append(newPet)
-//            let currentItem = petList.petArray[petList.petArray.count-1]
-            
-//            let dstView = segue.destination as! ViewController
-            
-//            dstView.pet = currentItem
+
             let currentPet = petPList[petPList.count-1]
             
             let dstView = segue.destination as! ViewController
             
             dstView.pPet = currentPet
             
-        case "openList"?:
-            let dstView = segue.destination as! MyPetListViewController
-            dstView.petList = petList
-            
-           
         default: print(#function)
             
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-
 
 }
